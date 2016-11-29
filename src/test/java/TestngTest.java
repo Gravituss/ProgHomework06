@@ -1,11 +1,16 @@
+import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.BaseRozetkaPage;
 import pages.SearchResultsPage;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.testng.Assert.assertTrue;
 
@@ -43,8 +48,10 @@ public class TestngTest extends BaseTest {
                 System.out.println("FOUND");
                 break;
 
-            } catch (Exception e) {
-                try{Thread.sleep(2);}catch (Exception ee) {}
+            } catch (NoSuchElementException e) {
+                //try{Thread.sleep(2);}catch (Exception ee) {}
+                System.out.println("no such element exception");
+                break;
             }
         }
 

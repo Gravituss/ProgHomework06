@@ -9,9 +9,11 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    public final static String URL = Config.getProperty("baseUrl");
+    public final String URL = Config.getProperty("baseUrl");
     public final String BROWSER = Config.getProperty("driver");
     public final String TIMEOUT = Config.getProperty("timeout");
+    public final String PRICEMIN = Config.getProperty("priceMin");
+    public final String PRICEMAX = Config.getProperty("priceMax");
     WebDriver driver;
 
     public WebDriver getDriver () {
@@ -28,7 +30,7 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", "C:\\pr\\cd\\chromedriver.exe");
         driver = getDriver();
         driver.manage().timeouts().implicitlyWait(Integer.parseInt(TIMEOUT), TimeUnit.SECONDS);
-        driver.get(BaseTest.URL);
+        driver.get(URL);
         driver.manage().window().maximize();
     }
 

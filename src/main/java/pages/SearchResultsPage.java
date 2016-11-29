@@ -18,7 +18,6 @@ public class SearchResultsPage {
         this.driver = driver;
     }
 
-
     public WebElement getPriceMinField() {
         return priceMinField;
     }
@@ -28,10 +27,8 @@ public class SearchResultsPage {
     public WebElement getPriceSubmitBtn() {
         return priceSubmitBtn;
     }
+    public WebElement getPreloaderGif() { return preloaderGif; }
 
-    public WebElement getPreloaderGif() {
-        return preloaderGif;
-    }
     @FindBy(id = "price[min]")
     private WebElement priceMinField;
     @FindBy(id = "price[max]")

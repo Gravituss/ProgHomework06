@@ -35,7 +35,18 @@ public class TestngTest extends BaseTest {
         resultsPage.getPriceMaxField().sendKeys(PRICEMAX);
 
         resultsPage.getPriceSubmitBtn().click();
-        SearchResultsPage resultsPage2 = new SearchResultsPage(driver);
+
+        for(int p = 0; p < 990000000; p++) {
+            try {
+
+                driver.findElement(By.xpath(".//img[contains(@src, 'check-ajax.gif')]"));
+                System.out.println("FOUND");
+                break;
+
+            } catch (Exception e) {
+                try{Thread.sleep(2);}catch (Exception ee) {}
+            }
+        }
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath(".//img[contains(@src, 'check-ajax.gif')]")));

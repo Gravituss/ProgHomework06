@@ -35,6 +35,10 @@ public class BaseRozetkaPage {
         return categorySportItem;
     }
 
+    public WebElement getCategoryPcPartsItem() { return categoryPcPartsItem;  }
+
+    public WebElement getFooterCopyrightText() {return footerCopyrightText;}
+
     @FindBy(xpath = "//div[contains(@class,'notificationPanel') and text()[contains(.,'Отказаться')]]")
     private WebElement dismissBtn;
     @FindBy (xpath = "//div[@class = 'rz-header-search-inner']//input[@name = 'text']")
@@ -44,6 +48,16 @@ public class BaseRozetkaPage {
     @FindBy (xpath = "//div[@class = 'rz-header-search-category']//a[contains(@class," +
             "'rz-header-search-category') and text()[contains(.,'Спортивные тов')]]")
     private WebElement categorySportItem;
+
+
+    @FindBy (xpath = "//div[@class = 'rz-header-search-category']//a[contains(@class," +
+            "'rz-header-search-category') and text()[contains(.,'Компьютерные ком')]]")
+    private WebElement categoryPcPartsItem;
+
+
+
+    @FindBy (xpath = ".//*[@id='body-footer']//div[@class='copy']")
+    private WebElement footerCopyrightText;
 
 
 }

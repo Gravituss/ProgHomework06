@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static org.testng.Assert.assertTrue;
+import static pages.SearchResultsPage.PRELOADER_XPATH;
 
 public class TestngTest extends BaseTest {
 
@@ -31,9 +32,9 @@ public class TestngTest extends BaseTest {
         basePage.getCategoryPcPartsItem().click();
         basePage.getSearchField().submit();
 
-
         SearchResultsPage resultsPage = new SearchResultsPage(driver);
 
+        waitFor(resultsPage.getPriceMinField());
         clearSymbols(resultsPage.getPriceMinField(), 8);
         resultsPage.getPriceMinField().sendKeys(PRICEMIN);
         clearSymbols(resultsPage.getPriceMaxField(), 8);
@@ -41,18 +42,11 @@ public class TestngTest extends BaseTest {
 
         resultsPage.getPriceSubmitBtn().click();
 
-        waitFor(resultsPage.getPreloaderGif());
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(PRELOADER_XPATH)));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PRELOADER_XPATH)));
         System.out.println("Gif is caught");
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath(resultsPage.PRELOADER_XPATH)));
-        System.out.println("Gif is caught again");
 
-
-
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(
-                By.xpath(resultsPage.PRELOADER_XPATH)));
-        System.out.println("Gif is invisible now");
 
     }
 

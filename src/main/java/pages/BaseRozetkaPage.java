@@ -14,12 +14,6 @@ public class BaseRozetkaPage {
         this.driver = driver;
     }
 
-    public WebElement getMenuElement (String text) {
-        String xpath = ".//*[@class='m-top']//a[contains(@class, 'novisited') and text()[contains(.,'" +
-                text + "')]]";
-        return driver.findElement(By.xpath(xpath));
-    }
-
     public WebElement getDismissBtn() {
         return dismissBtn;
     }
@@ -29,10 +23,6 @@ public class BaseRozetkaPage {
 
     public WebElement getCategoriesDropdown() {
         return categoriesDropdown;
-    }
-
-    public WebElement getCategorySportItem() {
-        return categorySportItem;
     }
 
     public WebElement getCategoryPcPartsItem() { return categoryPcPartsItem;  }
@@ -45,19 +35,11 @@ public class BaseRozetkaPage {
     private WebElement searchField;
     @FindBy (xpath = "//div[@class = 'rz-header-search-category']//span[@name = 'rz-search-category-value']")
     private WebElement categoriesDropdown;
-    @FindBy (xpath = "//div[@class = 'rz-header-search-category']//a[contains(@class," +
-            "'rz-header-search-category') and text()[contains(.,'Спортивные тов')]]")
-    private WebElement categorySportItem;
-
 
     @FindBy (xpath = "//div[@class = 'rz-header-search-category']//a[contains(@class," +
             "'rz-header-search-category') and text()[contains(.,'Компьютерные ком')]]")
     private WebElement categoryPcPartsItem;
 
-
-
     @FindBy (xpath = ".//*[@id='body-footer']//div[@class='copy']")
     private WebElement footerCopyrightText;
-
-
 }

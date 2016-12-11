@@ -10,8 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 public class SearchResultsPage {
 
     private WebDriver driver;
-    public final String PRELOADER_XPATH = ".//img[contains(@class,'process') " +
-            "and contains(@src,'check-ajax.gif')]";
+//    public final static String PRELOADER_XPATH = ".//img[contains(@class,'proces') " +
+//            "and contains(@src,'check-ajax.gif')]";
+
+    public final static String PRELOADER_XPATH = ".//*[@id='parameters-filter-form']/div/div[2]/img";
 
     public SearchResultsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -27,7 +29,6 @@ public class SearchResultsPage {
     public WebElement getPriceSubmitBtn() {
         return priceSubmitBtn;
     }
-    public WebElement getPreloaderGif() { return preloaderGif; }
 
     @FindBy(id = "price[min]")
     private WebElement priceMinField;
@@ -35,11 +36,5 @@ public class SearchResultsPage {
     private WebElement priceMaxField;
     @FindBy(xpath = ".//button[@id='submitprice']")
     private WebElement priceSubmitBtn;
-
-    @FindBy(xpath = PRELOADER_XPATH)
-    private WebElement preloaderGif;
-
-
-
 
 }

@@ -30,7 +30,7 @@ public class BaseTest {
         System.setProperty("webdriver.gecko.driver", "C:\\pr\\gecko\\geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "C:\\pr\\cd\\chromedriver.exe");
         driver = getDriver();
-        //driver.manage().timeouts().implicitlyWait(Integer.parseInt(TIMEOUT), TimeUnit.SECONDS);
+
         driver.get(URL);
         driver.manage().window().maximize();
     }

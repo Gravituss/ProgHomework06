@@ -10,8 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 public class SearchResultsPage {
 
     private WebDriver driver;
-    public final String PRELOADER_XPATH = ".//img[contains(@src, 'check-ajax.gif')]";
-
+    public final String PRELOADER_XPATH = ".//img[contains(@class,'process') " +
+            "and contains(@src,'check-ajax.gif')]";
 
     public SearchResultsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

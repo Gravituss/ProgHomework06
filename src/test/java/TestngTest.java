@@ -41,22 +41,19 @@ public class TestngTest extends BaseTest {
 
         resultsPage.getPriceSubmitBtn().click();
 
-        for(int p = 0; p < 990000000; p++) {
-            try {
-
-                driver.findElement(By.xpath(".//img[contains(@src, 'check-ajax.gif')]"));
-                System.out.println("FOUND");
-                break;
-
-            } catch (NoSuchElementException e) {
-                //try{Thread.sleep(2);}catch (Exception ee) {}
-                System.out.println("no such element exception");
-                break;
-            }
-        }
+        waitFor(resultsPage.getPreloaderGif());
+        System.out.println("Gif is caught");
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath(".//img[contains(@src, 'check-ajax.gif')]")));
+                By.xpath(resultsPage.PRELOADER_XPATH)));
+        System.out.println("Gif is caught again");
+
+
+
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(
+                By.xpath(resultsPage.PRELOADER_XPATH)));
+        System.out.println("Gif is invisible now");
+
     }
 
     public void clearSymbols (WebElement element, int times){
